@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1dd6e981-b3f0-4cc9-b913-bdc3995d7a47">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Sat Dec 31 10:53:48 PKT 2016"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="c413f35d-9e59-4d01-a11f-6f08b6e1ac1f"/>
+	<queryString>
+		<![CDATA[select * from bankpayment where id=(select max(id) from bankpayment)]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="reciept_date" class="java.sql.Date"/>
+	<field name="bank_acno" class="java.lang.Integer"/>
+	<field name="bank_name" class="java.lang.String"/>
+	<field name="bank_title" class="java.lang.String"/>
+	<field name="amount" class="java.lang.Integer"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="comments" class="java.lang.String"/>
+	<field name="voucher_no" class="java.lang.String"/>
+	<field name="account_name" class="java.lang.String"/>
+	<variable name="variable2" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<line>
+				<reportElement uuid="b8afabed-4ba0-41ee-97ce-3e15309ba9af" x="201" y="431" width="117" height="1">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="6aaa409f-9dcf-4217-80a0-545bfb84bba3" mode="Opaque" x="275" y="-10" width="240" height="181" backcolor="#FFFFCC">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4">
+					<pen lineWidth="1.0" lineColor="#CC9900"/>
+					<topPen lineWidth="1.0" lineColor="#CC9900"/>
+					<leftPen lineWidth="1.0" lineColor="#CC9900"/>
+					<bottomPen lineWidth="1.0" lineColor="#CC9900"/>
+					<rightPen lineWidth="1.0" lineColor="#CC9900"/>
+				</box>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Flowers: there are two flowers, the first one is printed only starting from the second page, the other one only in the first page.]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="f15caac7-1c9f-455b-bee1-f8d260b0384f" x="72" y="37" width="204" height="1">
+					<printWhenExpression><![CDATA[Boolean.FALSE]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="3.0" lineStyle="Dotted" lineColor="#996600"/>
+				</graphicElement>
+			</line>
+		</band>
+	</background>
+	<title>
+		<band height="231" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a0e40a44-bd03-4f0e-80a5-5043e6f81a88" x="16" y="168" width="72" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank AC Title]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e37ccd6e-5fda-4cd4-9747-68351de49605" x="78" y="185" width="475" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="a0e40a44-bd03-4f0e-80a5-5043e6f81a88" x="10" y="200" width="62" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank AC No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cc09f490-0610-4c7c-bffc-65505b5e2d5a" x="101" y="95" width="352" height="31"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[		ABC PRIVATE LIMITED]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="eebd3135-271e-4f68-9d46-2de9ab3bd12d" x="105" y="197" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{bank_acno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="de2f780a-cc76-44d3-a6d5-fe5db64a46a0" x="415" y="168" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{bank_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="148069cd-7852-41a1-9765-2e1bb5983298" x="101" y="168" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{bank_title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="048ceea8-a298-461e-858c-7c3cf1abbfd0" x="403" y="200" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{comments}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a0e40a44-bd03-4f0e-80a5-5043e6f81a88" x="322" y="169" width="62" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bank Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a0e40a44-bd03-4f0e-80a5-5043e6f81a88" x="322" y="197" width="62" height="17"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Narration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0bf1a7e0-4c43-4dcc-88ad-9f7715addc00" mode="Opaque" x="16" y="11" width="519" height="52" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANK PAYMENT VOUCHER]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="a0e40a44-bd03-4f0e-80a5-5043e6f81a88" x="8" y="0" width="64" height="27"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GL CONTROL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec8ebad1-07b4-453a-92ed-a7202fe46f73" x="112" y="0" width="122" height="36"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARTICULAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e22ce4b5-f00e-4529-bb2b-469674dc59a9" x="253" y="0" width="69" height="36"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement uuid="1f34d09c-6518-44e1-b7b7-1ce2ff9916e2" x="352" y="0" width="1" height="22"/>
+			</line>
+			<textField>
+				<reportElement uuid="efd36570-b1f4-4684-9564-d9157c275e6d" x="253" y="2" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="57ee2004-96f7-4eab-a387-82ed548c151c" x="124" y="4" width="96" height="18"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{account_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="208" splitType="Stretch">
+			<line>
+				<reportElement uuid="06f3591c-30e1-4d7e-a808-248394c60756" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement uuid="2d53f788-37a1-4240-987a-c431304271aa" x="25" y="32" width="536" height="39"/>
+				<textElement/>
+				<text><![CDATA[Prepared by ____________Checked and Approved By____________________Month_____________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d217f17-2f59-4627-8246-f3fbeb64409d" x="25" y="86" width="176" height="26"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACCOUNTANT]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="13" splitType="Stretch">
+			<frame>
+				<reportElement uuid="794f0fbd-3546-492e-a39d-4649e2f87aca" mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#006699"/>
+				<textField evaluationTime="Report">
+					<reportElement uuid="dda97e60-f6e7-429b-9c1c-b99597200880" style="Column header" x="513" y="-1" width="40" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="a55b7aa5-f9b7-4823-b6fb-b80bdc55606e" style="Column header" x="433" y="-1" width="80" height="13" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="959a44bf-1593-4b23-86a7-ace7d9ea3ce4" style="Column header" x="2" y="-1" width="197" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

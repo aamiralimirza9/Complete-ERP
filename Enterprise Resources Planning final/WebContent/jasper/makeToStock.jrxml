@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="makeToStock" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ce9d7a41-74ac-48a3-83af-5121a5652a52">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT o.order_id,o.delivery_date,o.`product_id`,o.customer_id,s.`product_name`,s.`quantity`,s.`price`,s.`product_id`,s.`sub_order_id`
+FROM ordertable o ,suborder s
+WHERE o.`order_id`=(SELECT MAX(order_id) FROM ordertable WHERE o.`order_id`=(SELECT MAX(s.`order_id`)FROM ordertable))]]>
+	</queryString>
+	<field name="order_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="delivery_date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customer_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="product_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sub_order_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="price_1" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{price}]]></variableExpression>
+	</variable>
+	<variable name="price_2" class="java.lang.Integer" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{price}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<frame>
+				<reportElement uuid="eb75d680-c290-42df-8a63-853eea2ae5c2" mode="Opaque" x="4" y="0" width="555" height="44" backcolor="#006699"/>
+				<staticText>
+					<reportElement uuid="96149b36-2121-4bc8-aeea-405236f7054a" x="15" y="0" width="405" height="40" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[                  Sales and Distribution]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement uuid="68e57b44-30da-4972-9741-5038cf512a39" mode="Opaque" x="4" y="44" width="555" height="21" forecolor="#006699" backcolor="#E6E6E6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Make To Stock]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="cf0ec956-0c8c-4181-b6e0-e2a90b738e2d" x="4" y="64" width="555" height="1"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="73" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="cba278b9-dd99-4567-951c-714190a72201" x="4" y="0" width="78" height="20"/>
+				<textElement/>
+				<text><![CDATA[Order Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7358c0a1-290d-4ea0-b38c-da65903a6ec4" x="4" y="36" width="78" height="20"/>
+				<textElement/>
+				<text><![CDATA[Sub Order Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2b698c6b-679e-42cd-8793-e40f51237253" x="394" y="0" width="64" height="20"/>
+				<textElement/>
+				<text><![CDATA[Current Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bea52604-23a0-4477-8cc9-3a6d0df639e1" x="394" y="36" width="64" height="20"/>
+				<textElement/>
+				<text><![CDATA[Delivery Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3df62803-8cd8-4113-909d-0b1c086a6eae" x="462" y="36" width="90" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{delivery_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ad938b79-59b9-4830-a4e4-c9198728311d" x="85" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{order_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dd22e859-b597-46fe-96c6-f545ec96d076" x="85" y="36" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{sub_order_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<line>
+				<reportElement uuid="b3c3fa96-b569-4ae1-9c57-f9f18801f3d4" x="0" y="0" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="efeef9a0-21e9-4d20-a974-ea1679807a4a" x="4" y="1" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ca541b8-5eb2-452e-b2c6-ab19dbb4d201" x="152" y="2" width="85" height="20"/>
+				<textElement/>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8500f85f-1817-4b38-95fc-3b045491e177" x="308" y="0" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[  Unit  Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="858de28c-f931-49a9-a79d-314f39214c4f" x="462" y="1" width="90" height="20"/>
+				<textElement/>
+				<text><![CDATA[Total Price]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e6e20891-f7eb-479b-8b35-a0b6cc4feacb" x="4" y="21" width="552" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="68" splitType="Stretch">
+			<line>
+				<reportElement uuid="b847d3b5-4056-4c72-8507-c479e1687b3b" x="0" y="57" width="555" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="319673b0-01d5-4500-8dbd-bcfba8002b17" x="4" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{product_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d7e03d8d-ace3-42c3-a8e5-46dc0bff5418" x="462" y="0" width="90" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{price}*$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d5a6ac46-32ec-4f5a-88b9-64cad71b267b" x="152" y="0" width="85" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="59c8d1b7-eb8a-431c-a85d-4d620a1df1a0" x="324" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="113" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="85" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="75" splitType="Stretch"/>
+	</summary>
+</jasperReport>

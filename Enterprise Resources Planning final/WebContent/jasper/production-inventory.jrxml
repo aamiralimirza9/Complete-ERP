@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ac324774-319c-4889-a93a-b858d1b07172">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="83"/>
+	<queryString>
+		<![CDATA[SELECT m.id,m.po_no,m.order_id ,s.po_quantity ,s.bm_id ,b.bm_name
+FROM mainproduction m , productionorder s ,billofmaterial b
+WHERE m.`id`=(SELECT MAX(id) FROM productionorder WHERE m.`id`=(SELECT MAX(s.id) FROM mainproduction));]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="po_no" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="order_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="po_quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bm_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="bm_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="83a3b697-5a26-4d90-8f9d-9856f02f48d1"/>
+				<staticText>
+					<reportElement x="20" y="20" width="575" height="43" forecolor="#FFFFFF" uuid="d67a1838-5a34-4dd6-803e-cfa39ff29c74"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[         PRODUCTION   ORDER]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="62">
+			<staticText>
+				<reportElement mode="Opaque" x="-20" y="0" width="595" height="36" forecolor="#006699" backcolor="#E6E6E6" uuid="5c001067-5a52-4010-9f86-93824cb22a3d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[            PRIVATE LIMITED]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="46" width="595" height="1" uuid="478b6caa-3bce-400e-a6b3-fc22ca0902c2"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="113">
+			<line>
+				<reportElement x="0" y="90" width="555" height="1" uuid="7c4d7747-2a58-4a94-97f8-3998aeeb4e61"/>
+			</line>
+			<staticText>
+				<reportElement x="35" y="11" width="100" height="20" uuid="ee09807b-7924-4245-92be-228855800f1b"/>
+				<text><![CDATA[MP Id:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="57" width="100" height="20" uuid="21142e43-e33a-41cc-9438-d3102a61ba71"/>
+				<text><![CDATA[Order No :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="35" y="57" width="100" height="20" uuid="009b20ad-d244-40c1-9174-be15437a0f0a"/>
+				<text><![CDATA[Production order No :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="11" width="100" height="20" uuid="fa18b20f-d38c-4a9f-9751-5eb0caa88c92"/>
+				<text><![CDATA[Current Date :]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="440" y="11" width="100" height="20" uuid="ce25eaa5-4d60-4721-8bb4-af4b519177ec"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="111" width="555" height="1" uuid="2e278afc-978c-43e1-beb7-23a6530542c2"/>
+			</line>
+			<staticText>
+				<reportElement x="47" y="93" width="100" height="20" uuid="7ceaa1bf-f3be-42e4-8464-2000f1c5dfb7"/>
+				<text><![CDATA[Bill Material NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="93" width="100" height="20" uuid="1932042c-add7-4ee4-95dd-7f3f40a3f8c3"/>
+				<text><![CDATA[Material Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="93" width="100" height="20" uuid="00749ed4-d32d-45de-a3d1-0139e627f552"/>
+				<text><![CDATA[Material Quantity]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="11" width="100" height="20" uuid="f5dd97f7-9420-45b6-a898-778c4082cae2"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="147" y="57" width="100" height="20" uuid="cf69b78b-c7d4-487f-affa-3c47f6aaee97"/>
+				<textFieldExpression><![CDATA[$F{po_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="57" width="100" height="20" uuid="25c7213c-3dd4-4ebb-aafa-540b4dc81450"/>
+				<textFieldExpression><![CDATA[$F{order_id}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24">
+			<textField>
+				<reportElement x="209" y="0" width="100" height="20" uuid="18c46805-970c-4609-9b1f-2adc492cddb5"/>
+				<textFieldExpression><![CDATA[$F{bm_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="0" width="100" height="20" uuid="406c3f38-71f2-495d-8c7f-97439aec722f"/>
+				<textFieldExpression><![CDATA[$F{bm_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="100" height="20" uuid="f91548ff-eaee-4045-8863-e39dffade585"/>
+				<textFieldExpression><![CDATA[$F{po_quantity}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="4baaea2c-127f-48ce-9879-844622d74fd6"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="94">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="64" width="515" height="13" backcolor="#E6E6E6" uuid="471b4715-634e-4fae-940e-778ef5b0a074"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="64" width="40" height="13" backcolor="#E6E6E6" uuid="f7e1d0b1-93f9-4fb6-a1cc-0d1be8d0f712"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="64" width="100" height="13" uuid="819f3c91-6439-4e08-9048-8020c1e25007"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report6" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="acca1e8b-f6da-41c8-82c4-c904f649478b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="66"/>
+	<style name="Text Body"/>
+	<queryString>
+		<![CDATA[SELECT g.`ac_type`,t.ac_name,t.Debit,t.Credit FROM trailbalance t,generalledgerlist g  WHERE t.`gl_no`=g.`id`  AND t.`ac_name` IN
+(SELECT account_name FROM generalledgerlist WHERE ac_type='Expenses'
+ OR ac_type='Revenue' ) ORDER BY g.`ac_type` ;]]>
+	</queryString>
+	<field name="ac_type" class="java.lang.String"/>
+	<field name="ac_name" class="java.lang.String"/>
+	<field name="Debit" class="java.lang.Integer"/>
+	<field name="Credit" class="java.lang.Integer"/>
+	<variable name="Debit_1" class="java.lang.Integer" resetType="Group" resetGroup="acc" calculation="Sum">
+		<variableExpression><![CDATA[$F{Debit}]]></variableExpression>
+	</variable>
+	<variable name="Credit_1" class="java.lang.Integer" resetType="Group" resetGroup="acc" calculation="Sum">
+		<variableExpression><![CDATA[$F{Credit}]]></variableExpression>
+	</variable>
+	<group name="ac_type">
+		<groupExpression><![CDATA[$F{ac_type}]]></groupExpression>
+	</group>
+	<group name="acc">
+		<groupExpression><![CDATA[$F{ac_type}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<rectangle>
+					<reportElement uuid="122aab56-b797-409f-b074-8c3de04b33bb" x="34" y="11" width="519" height="20" forecolor="#000000" backcolor="#006699"/>
+				</rectangle>
+				<textField>
+					<reportElement uuid="8c7c68b1-8c96-471c-b11f-3e0c23ba6b43" x="47" y="11" width="100" height="20" forecolor="#FFFFFF"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ac_type}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="50">
+				<staticText>
+					<reportElement uuid="fd494655-27c5-4226-93f1-98a8ea534dd3" x="63" y="13" width="99" height="37"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL :]]></text>
+				</staticText>
+				<textField>
+					<reportElement uuid="4bdebcd8-a968-4da0-bd29-3cea38e1f9ec" x="377" y="13" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$V{Credit_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0bf1a7e0-4c43-4dcc-88ad-9f7715addc00" mode="Opaque" x="46" y="12" width="457" height="54" isPrintInFirstWholeBand="true" forecolor="#FFFFFF" backcolor="#006699"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[      INCOME STATEMENT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="462e1c39-bfae-4cda-b062-f2c50982ba81" x="441" y="19" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cc09f490-0610-4c7c-bffc-65505b5e2d5a" x="63" y="8" width="352" height="31"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[		ABC PRIVATE LIMITED]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<elementGroup/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ecb044bd-ef9f-4830-9d37-d345dc4650ce" x="46" y="12" width="100" height="20" forecolor="#404040"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ac_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a2a92897-0853-4232-afb2-1415e0e0f950" style="Text Body" mode="Opaque" x="218" y="12" width="100" height="20" forecolor="#000000"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Debit}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="b50f4365-3bab-431e-af2e-f01bfc2092c0" x="35" y="44" width="520" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="bfd31021-20c3-4f0f-ad30-dbc8ea139c93" x="392" y="12" width="100" height="20" forecolor="#000000"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Credit}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="fbde8310-f54f-4380-968d-314977eb748f" x="177" y="1" width="1" height="45"/>
+			</line>
+			<line>
+				<reportElement uuid="0a165da5-9e22-4c1a-a3bd-64bff4dc707b" x="330" y="0" width="1" height="45"/>
+			</line>
+			<line>
+				<reportElement uuid="48796870-88e8-4118-b2b7-fe55308469eb" x="34" y="0" width="1" height="45"/>
+			</line>
+			<line>
+				<reportElement uuid="b50f4365-3bab-431e-af2e-f01bfc2092c0" x="34" y="2" width="520" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="0a165da5-9e22-4c1a-a3bd-64bff4dc707b" x="553" y="3" width="1" height="45"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement uuid="aa192094-aaa4-4cf0-8a3a-1e7dcf34b5f5" x="29" y="27" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3197b101-0f02-41b4-81a9-d130f4423249" x="426" y="24" width="80" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="fe1118ac-aee5-4d18-b2f8-495185a3f8de" x="506" y="24" width="40" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

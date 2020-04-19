@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Orderinvoice1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1acb93c8-5912-46e2-8d64-4f30e5bb9daa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from orderinvoice;]]>
+	</queryString>
+	<field name="oInviceId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="description" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dFrom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dTo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="weight" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="routeId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contactNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vId" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="customerNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vechileNo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="driverName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="paymentAmount" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="order_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="156" y="17" width="267" height="42" backcolor="#0000FF" uuid="8277e48e-b773-4fa6-ad46-89deb3e6bc39"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sales and Distribution]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-10" y="-10" width="565" height="92" backcolor="#006699" uuid="cfbcdc16-376d-49be-8e1b-b7bbe70dad65"/>
+				<staticText>
+					<reportElement x="10" y="26" width="515" height="43" forecolor="#FFFFFF" uuid="29cbc180-b9b7-4c59-8d03-7203ef331709"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[                 SALES ORDER]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="223" y="0" width="148" height="31" uuid="2b97dae7-6df2-47ee-8ae5-6cfb088561d7"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Order Invoice]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="29" width="55" height="20" uuid="e4ea35c9-d42e-4320-9889-e8caadd58d05"/>
+				<text><![CDATA[oInviceId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="29" width="62" height="20" uuid="ccf9c44b-92b8-487e-a0b5-c423fce61625"/>
+				<text><![CDATA[description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="29" width="40" height="20" uuid="78f02b77-3958-45a6-968d-6853ab9b6ca7"/>
+				<text><![CDATA[From]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="29" width="49" height="20" uuid="59b15859-be00-4876-9f1a-8363f7bd58ce"/>
+				<text><![CDATA[RouteId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="29" width="53" height="20" uuid="438bbf59-3fa3-4c47-aca9-3f0812314beb"/>
+				<text><![CDATA[customerNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="29" width="44" height="20" uuid="b6fb3691-ae53-4d64-82e7-1e456149f63e"/>
+				<text><![CDATA[weight]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="29" width="50" height="20" uuid="76882c65-1bd6-452b-92a3-b71ad48b4422"/>
+				<text><![CDATA[vechileNo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="29" width="39" height="20" uuid="9acd6edb-b9ea-40d6-a0b6-f4f0a8ce1c87"/>
+				<text><![CDATA[paymentAmount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="29" width="61" height="20" uuid="d1287b48-7f23-45f0-ae9e-1dc471cae4bc"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="14" width="66" height="20" uuid="8c5acc26-93a4-452c-90a1-5d42fff7093e"/>
+				<textFieldExpression><![CDATA[$F{oInviceId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="14" width="52" height="20" uuid="a3e7efc0-7e54-4823-843a-8722ac851fbc"/>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="14" width="40" height="20" uuid="a712377c-4d8b-4dad-9357-88b9ac5aeccc"/>
+				<textFieldExpression><![CDATA[$F{dFrom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="14" width="49" height="20" uuid="6dd1f2b8-303a-45a5-aa22-5bf93edbca61"/>
+				<textFieldExpression><![CDATA[$F{routeId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="14" width="53" height="20" uuid="498b7392-b7ad-4c25-8179-d03230f4835d"/>
+				<textFieldExpression><![CDATA[$F{customerNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="14" width="44" height="20" uuid="43f365a4-342e-42b8-87e9-0bce1600aef6"/>
+				<textFieldExpression><![CDATA[$F{weight}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="14" width="50" height="20" uuid="ae47582f-6815-4ecb-8bb7-99ac083ad2f6"/>
+				<textFieldExpression><![CDATA[$F{vechileNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="423" y="14" width="39" height="20" uuid="f97eeff1-d95d-4544-b50a-aa855cd466c1"/>
+				<textFieldExpression><![CDATA[$F{paymentAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="14" width="61" height="20" uuid="63fd1be6-bc0e-422b-8980-579ef2ecc549"/>
+				<textFieldExpression><![CDATA[$F{dDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
